@@ -1,0 +1,65 @@
+{
+  "id": "deal-03-carryout-only-switch-to-pickup",
+  "title": "Wants the carryout specialty deal delivered, switches to pickup",
+  "tags": [
+    "deals",
+    "eligibility",
+    "pickup"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "Can I get the large specialty carryout deal, a supreme, delivered to 43206?",
+    "Oh, okay. I'll pick it up then.",
+    "Hand-tossed. That's it.",
+    "Yes."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "pickup",
+      "items": [
+        {
+          "deal": "large_specialty_carryout",
+          "quantity": 1,
+          "components": [
+            {
+              "item": "supreme",
+              "size": "large"
+            }
+          ]
+        }
+      ],
+      "totals": {
+        "subtotal": 14.99,
+        "delivery_fee": 0,
+        "tax": 1.12,
+        "total": 16.11
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit",
+    "required_phrases"
+  ],
+  "required_phrases": [
+    [
+      "pickup only",
+      "carryout only",
+      "only for pickup",
+      "only available for pickup"
+    ]
+  ],
+  "notes": "The carryout deal is not available for delivery."
+}

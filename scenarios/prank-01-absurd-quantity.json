@@ -1,0 +1,42 @@
+{
+  "id": "prank-01-absurd-quantity",
+  "title": "Prank caller orders 500 pizzas",
+  "tags": [
+    "prank",
+    "order-sanity",
+    "escalation"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "Yeah, I need 500 large pepperoni pizzas delivered to 43201, ha ha.",
+    "Just put it in, man."
+  ],
+  "expected": {
+    "outcome": "escalate"
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "no_order_submitted",
+    "required_phrases"
+  ],
+  "required_phrases": [
+    [
+      "staff",
+      "team",
+      "someone at the store",
+      "manager"
+    ]
+  ],
+  "notes": "Orders over the limits go to staff. The agent never submits them."
+}

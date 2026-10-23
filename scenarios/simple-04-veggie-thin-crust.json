@@ -1,0 +1,51 @@
+{
+  "id": "simple-04-veggie-thin-crust",
+  "title": "Large veggie pizza on thin crust for pickup",
+  "tags": [
+    "simple",
+    "pickup",
+    "crust"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "I'd like a large veggie pizza on thin crust for pickup.",
+    "Nothing else.",
+    "Yes."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "pickup",
+      "items": [
+        {
+          "item": "veggie",
+          "size": "large",
+          "crust": "thin",
+          "quantity": 1
+        }
+      ],
+      "totals": {
+        "subtotal": 18.99,
+        "delivery_fee": 0,
+        "tax": 1.42,
+        "total": 20.41
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit"
+  ],
+  "notes": "Specialty pizza with a non-default crust."
+}

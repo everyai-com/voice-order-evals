@@ -1,0 +1,36 @@
+{
+  "id": "escalate-01-asks-for-human",
+  "title": "Caller asks for a person straight away",
+  "tags": [
+    "escalation"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    {
+      "say": "Can I just talk to a real person?",
+      "marks": [
+        "request_human"
+      ]
+    }
+  ],
+  "expected": {
+    "outcome": "escalate"
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "no_order_submitted",
+    "escalate_on_request"
+  ],
+  "notes": "Transfer at once; at most one short confirming turn."
+}

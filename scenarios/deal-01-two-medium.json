@@ -1,0 +1,67 @@
+{
+  "id": "deal-01-two-medium",
+  "title": "Two medium two-topping deal",
+  "tags": [
+    "deals",
+    "pickup"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "Do you have a deal on two mediums?",
+    "Great. First one pepperoni and mushrooms, second one Italian sausage.",
+    "Hand-tossed on both, for pickup.",
+    "That's it.",
+    "Yes."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "pickup",
+      "items": [
+        {
+          "deal": "two_medium_two_topping",
+          "quantity": 1,
+          "components": [
+            {
+              "item": "cheese",
+              "size": "medium",
+              "toppings": [
+                "pepperoni",
+                "mushrooms"
+              ]
+            },
+            {
+              "item": "cheese",
+              "size": "medium",
+              "toppings": [
+                "italian_sausage"
+              ]
+            }
+          ]
+        }
+      ],
+      "totals": {
+        "subtotal": 19.99,
+        "delivery_fee": 0,
+        "tax": 1.5,
+        "total": 21.49
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit"
+  ],
+  "notes": "Deal eligibility and deal pricing."
+}

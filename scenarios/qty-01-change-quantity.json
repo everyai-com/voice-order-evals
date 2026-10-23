@@ -1,0 +1,52 @@
+{
+  "id": "qty-01-change-quantity",
+  "title": "Changes two pizzas to three mid-order",
+  "tags": [
+    "quantity-change",
+    "pickup"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "Two large pepperoni pizzas for pickup please.",
+    "Hand-tossed.",
+    "Actually, make that three.",
+    "That's it.",
+    "Yes."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "pickup",
+      "items": [
+        {
+          "item": "pepperoni",
+          "size": "large",
+          "crust": "hand_tossed",
+          "quantity": 3
+        }
+      ],
+      "totals": {
+        "subtotal": 50.97,
+        "delivery_fee": 0,
+        "tax": 3.82,
+        "total": 54.79
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit"
+  ],
+  "notes": "The final quantity is the one that counts."
+}

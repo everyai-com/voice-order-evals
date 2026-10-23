@@ -1,0 +1,33 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Unit tests
+        run: npm test
+      - name: Good example agent passes
+        run: node bin/voe.mjs score examples/runs-good.jsonl
+      - name: Flawed example agent fails with exit code 1
+        run: |
+          set +e
+          node bin/voe.mjs score examples/runs-flawed.jsonl
+          code=$?
+          set -e
+          test "$code" -eq 1

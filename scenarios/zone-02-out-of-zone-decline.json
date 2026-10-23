@@ -1,0 +1,41 @@
+{
+  "id": "zone-02-out-of-zone-decline",
+  "title": "Delivery address outside the zone, caller declines pickup",
+  "tags": [
+    "delivery-zone",
+    "decline"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "Can you deliver a large supreme to 43230?",
+    "No, I can't pick it up. Never mind then."
+  ],
+  "expected": {
+    "outcome": "decline"
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "no_order_submitted",
+    "required_phrases"
+  ],
+  "required_phrases": [
+    [
+      "outside our delivery",
+      "don't deliver",
+      "do not deliver",
+      "out of our delivery"
+    ]
+  ],
+  "notes": "No order is placed."
+}

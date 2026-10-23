@@ -1,0 +1,61 @@
+{
+  "id": "barge-02-zip-correction",
+  "title": "Caller corrects the delivery ZIP while the agent repeats it",
+  "tags": [
+    "barge-in",
+    "correction",
+    "delivery"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "Delivery please, to 27 Maple Court, 43201.",
+    {
+      "say": "Sorry, no, 43206. The ZIP is 43206.",
+      "marks": [
+        "barge_in"
+      ]
+    },
+    "A large five meat, hand-tossed.",
+    "That's it. Cash.",
+    "Yes."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "delivery",
+      "delivery_zip": "43206",
+      "payment": "pay_on_delivery",
+      "items": [
+        {
+          "item": "five_meat",
+          "size": "large",
+          "crust": "hand_tossed",
+          "quantity": 1
+        }
+      ],
+      "totals": {
+        "subtotal": 20.49,
+        "delivery_fee": 3.99,
+        "tax": 1.54,
+        "total": 26.02
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit",
+    "barge_in_yield"
+  ],
+  "notes": "The corrected ZIP is the one on the ticket."
+}

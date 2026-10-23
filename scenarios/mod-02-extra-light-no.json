@@ -1,0 +1,63 @@
+{
+  "id": "mod-02-extra-light-no",
+  "title": "Supreme with no olives, extra mushrooms and light sauce",
+  "tags": [
+    "modifiers",
+    "extra-light-no",
+    "pickup"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "Can I get a medium supreme for pickup?",
+    "No black olives, extra mushrooms, and light sauce please.",
+    "Hand-tossed.",
+    "No, that's all.",
+    "Correct."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "pickup",
+      "items": [
+        {
+          "item": "supreme",
+          "size": "medium",
+          "crust": "hand_tossed",
+          "remove": [
+            "black_olives"
+          ],
+          "toppings": [
+            {
+              "id": "mushrooms",
+              "amount": "extra"
+            }
+          ],
+          "sauce_amount": "light",
+          "quantity": 1
+        }
+      ],
+      "totals": {
+        "subtotal": 19.24,
+        "delivery_fee": 0,
+        "tax": 1.44,
+        "total": 20.68
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit"
+  ],
+  "notes": "Removing an included topping is free; extra on an included topping costs one topping."
+}

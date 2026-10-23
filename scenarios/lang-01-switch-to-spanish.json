@@ -1,0 +1,59 @@
+{
+  "id": "lang-01-switch-to-spanish",
+  "title": "Caller switches to Spanish",
+  "tags": [
+    "language",
+    "pickup"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "Hi, I'd like to order a pizza.",
+    {
+      "say": "¿Podemos hablar en español?",
+      "marks": [
+        "switch_language"
+      ],
+      "lang": "es"
+    },
+    "Una pizza hawaiana mediana para recoger, por favor.",
+    "Masa tradicional. Nada más.",
+    "Sí, está bien."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "pickup",
+      "items": [
+        {
+          "item": "hawaiian",
+          "size": "medium",
+          "crust": "hand_tossed",
+          "quantity": 1
+        }
+      ],
+      "totals": {
+        "subtotal": 15.49,
+        "delivery_fee": 0,
+        "tax": 1.16,
+        "total": 16.65
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit",
+    "language_followed"
+  ],
+  "notes": "Every agent turn after the switch is in Spanish."
+}

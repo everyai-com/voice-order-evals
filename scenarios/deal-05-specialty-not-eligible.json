@@ -1,0 +1,63 @@
+{
+  "id": "deal-05-specialty-not-eligible",
+  "title": "Asks for two medium supremes on the two-medium deal",
+  "tags": [
+    "deals",
+    "eligibility",
+    "pickup"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "Can I do two medium supremes with the two medium deal?",
+    "No, I want the supremes. Just charge me the regular price.",
+    "Hand-tossed, for pickup.",
+    "That's it.",
+    "Yes."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "pickup",
+      "items": [
+        {
+          "item": "supreme",
+          "size": "medium",
+          "crust": "hand_tossed",
+          "quantity": 2
+        }
+      ],
+      "totals": {
+        "subtotal": 34.98,
+        "delivery_fee": 0,
+        "tax": 2.62,
+        "total": 37.6
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit",
+    "required_phrases"
+  ],
+  "required_phrases": [
+    [
+      "not eligible",
+      "isn't eligible",
+      "aren't eligible",
+      "build-your-own",
+      "build your own"
+    ]
+  ],
+  "notes": "The agent must not apply a deal the order does not qualify for."
+}

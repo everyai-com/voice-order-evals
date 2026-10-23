@@ -1,0 +1,40 @@
+{
+  "id": "silence-01-no-response",
+  "title": "Caller never speaks",
+  "tags": [
+    "silence",
+    "timeout"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    {
+      "silence_ms": 6000
+    },
+    {
+      "silence_ms": 6000
+    },
+    {
+      "silence_ms": 6000
+    }
+  ],
+  "expected": {
+    "outcome": "abandoned"
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "no_order_submitted",
+    "silence_handling"
+  ],
+  "notes": "Re-prompt at most twice, waiting at least four seconds each time, then end the call."
+}

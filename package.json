@@ -1,0 +1,35 @@
+{
+  "name": "voice-order-evals",
+  "version": "0.1.0",
+  "description": "Offline eval pack for restaurant phone-ordering voice agents: a synthetic menu, scripted caller scenarios, and a scorer for ticket exactness, policy compliance and latency.",
+  "type": "module",
+  "bin": {
+    "voe": "bin/voe.mjs"
+  },
+  "files": [
+    "bin",
+    "src",
+    "menu",
+    "scenarios",
+    "examples"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "score:good": "node bin/voe.mjs score examples/runs-good.jsonl",
+    "score:flawed": "node bin/voe.mjs score examples/runs-flawed.jsonl"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "voice-agents",
+    "evals",
+    "restaurant",
+    "ordering",
+    "conversational-ai",
+    "latency",
+    "pci"
+  ],
+  "author": "MagicTeams.ai",
+  "license": "Apache-2.0"
+}

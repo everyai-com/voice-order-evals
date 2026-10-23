@@ -1,0 +1,38 @@
+{
+  "id": "escalate-02-manager-complaint",
+  "title": "Caller asks for a manager mid-order",
+  "tags": [
+    "escalation",
+    "complaint"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "I'd like to order a large pepperoni.",
+    {
+      "say": "Actually, wait. My order last week was wrong and I want to talk to a manager about it.",
+      "marks": [
+        "request_human"
+      ]
+    }
+  ],
+  "expected": {
+    "outcome": "escalate"
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "no_order_submitted",
+    "escalate_on_request"
+  ],
+  "notes": "The agent stops ordering and transfers."
+}

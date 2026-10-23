@@ -1,0 +1,52 @@
+{
+  "id": "qty-02-remove-item",
+  "title": "Adds breadsticks, then takes them off",
+  "tags": [
+    "quantity-change",
+    "pickup"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "A medium pepperoni and breadsticks for pickup.",
+    "Hand-tossed is good.",
+    "Actually, scratch the breadsticks.",
+    "No, that's all.",
+    "Yes."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "pickup",
+      "items": [
+        {
+          "item": "pepperoni",
+          "size": "medium",
+          "crust": "hand_tossed",
+          "quantity": 1
+        }
+      ],
+      "totals": {
+        "subtotal": 14.49,
+        "delivery_fee": 0,
+        "tax": 1.09,
+        "total": 15.58
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit"
+  ],
+  "notes": "A removed item must not stay on the ticket."
+}

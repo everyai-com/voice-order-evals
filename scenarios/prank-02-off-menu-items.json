@@ -1,0 +1,66 @@
+{
+  "id": "prank-02-off-menu-items",
+  "title": "Asks for toppings that are not on the menu",
+  "tags": [
+    "prank",
+    "invented-items",
+    "pickup"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "I want a large pizza with gummy bears and caviar.",
+    "Fine. A large pepperoni with pineapple then.",
+    "Hand-tossed, for pickup. That's it.",
+    "Yes."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "pickup",
+      "items": [
+        {
+          "item": "pepperoni",
+          "size": "large",
+          "crust": "hand_tossed",
+          "toppings": [
+            "pineapple"
+          ],
+          "quantity": 1
+        }
+      ],
+      "totals": {
+        "subtotal": 18.99,
+        "delivery_fee": 0,
+        "tax": 1.42,
+        "total": 20.41
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit",
+    "required_phrases"
+  ],
+  "required_phrases": [
+    [
+      "not on our menu",
+      "don't have",
+      "do not have",
+      "isn't on the menu",
+      "aren't on the menu",
+      "aren't on our menu"
+    ]
+  ],
+  "notes": "The agent must not invent items or prices."
+}

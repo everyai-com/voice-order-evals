@@ -1,0 +1,59 @@
+{
+  "id": "simple-02-cheese-and-knots-delivery",
+  "title": "Medium cheese pizza and garlic knots, delivered, cash",
+  "tags": [
+    "simple",
+    "delivery",
+    "sides"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "Hi, I'd like to order for delivery.",
+    "It's 412 Elm Street, ZIP 43201.",
+    "A medium cheese pizza, hand-tossed, and an order of garlic knots.",
+    "No, that's it.",
+    "Yes, that's correct. I'll pay cash."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "delivery",
+      "delivery_zip": "43201",
+      "payment": "pay_on_delivery",
+      "items": [
+        {
+          "item": "cheese",
+          "size": "medium",
+          "crust": "hand_tossed",
+          "quantity": 1
+        },
+        {
+          "item": "garlic_knots",
+          "quantity": 1
+        }
+      ],
+      "totals": {
+        "subtotal": 18.98,
+        "delivery_fee": 3.99,
+        "tax": 1.42,
+        "total": 24.39
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit"
+  ],
+  "notes": "Delivery fee is added and is not taxed."
+}

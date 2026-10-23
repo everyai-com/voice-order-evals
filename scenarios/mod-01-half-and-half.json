@@ -1,0 +1,66 @@
+{
+  "id": "mod-01-half-and-half",
+  "title": "Half pepperoni, half mushroom and onion",
+  "tags": [
+    "modifiers",
+    "half-and-half",
+    "pickup"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "I want a large pizza, half pepperoni and half mushroom and onion.",
+    "Hand-tossed, for pickup.",
+    "That's it, thanks.",
+    "Yes."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "pickup",
+      "items": [
+        {
+          "item": "cheese",
+          "size": "large",
+          "crust": "hand_tossed",
+          "toppings": [
+            {
+              "id": "pepperoni",
+              "placement": "left"
+            },
+            {
+              "id": "mushrooms",
+              "placement": "right"
+            },
+            {
+              "id": "onions",
+              "placement": "right"
+            }
+          ],
+          "quantity": 1
+        }
+      ],
+      "totals": {
+        "subtotal": 20.99,
+        "delivery_fee": 0,
+        "tax": 1.57,
+        "total": 22.56
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit"
+  ],
+  "notes": "Half toppings are charged at the full topping price. Left and right follow the caller's order."
+}

@@ -1,0 +1,52 @@
+{
+  "id": "simple-01-large-pepperoni-pickup",
+  "title": "Large pepperoni for pickup, pays at the store",
+  "tags": [
+    "simple",
+    "pickup"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "Hi, can I get a large pepperoni pizza for pickup?",
+    "Regular hand-tossed is fine.",
+    "No thanks, that's everything.",
+    "Yep, that's right. I'll pay when I pick it up."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "pickup",
+      "payment": "pay_at_store",
+      "items": [
+        {
+          "item": "pepperoni",
+          "size": "large",
+          "crust": "hand_tossed",
+          "quantity": 1
+        }
+      ],
+      "totals": {
+        "subtotal": 16.99,
+        "delivery_fee": 0,
+        "tax": 1.27,
+        "total": 18.26
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit"
+  ],
+  "notes": "Baseline happy path. One offer of an add-on is allowed."
+}

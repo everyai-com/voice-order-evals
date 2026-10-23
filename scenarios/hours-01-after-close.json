@@ -1,0 +1,32 @@
+{
+  "id": "hours-01-after-close",
+  "title": "Calls after the store has closed",
+  "tags": [
+    "store-hours",
+    "decline"
+  ],
+  "context": {
+    "now": "2026-10-20T22:40:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "Hi, are you still taking orders? I want a large pepperoni.",
+    "Oh, okay. Thanks."
+  ],
+  "expected": {
+    "outcome": "decline"
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "no_order_submitted"
+  ],
+  "notes": "The store closes at 22:00 on Tuesdays. The agent says when it opens."
+}

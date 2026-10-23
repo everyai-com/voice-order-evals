@@ -1,0 +1,63 @@
+{
+  "id": "simple-03-wings-and-soda",
+  "title": "Sixteen buffalo wings and a 2-liter root beer for pickup",
+  "tags": [
+    "simple",
+    "pickup",
+    "sides",
+    "options"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "Can I get sixteen wings for pickup?",
+    "Buffalo, please.",
+    "And a 2-liter root beer.",
+    "That's all.",
+    "Sounds good."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "pickup",
+      "items": [
+        {
+          "item": "wings",
+          "size": "16pc",
+          "options": {
+            "wing_sauce": "buffalo"
+          },
+          "quantity": 1
+        },
+        {
+          "item": "soda_2l",
+          "options": {
+            "flavor": "root_beer"
+          },
+          "quantity": 1
+        }
+      ],
+      "totals": {
+        "subtotal": 22.48,
+        "delivery_fee": 0,
+        "tax": 1.69,
+        "total": 24.17
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit"
+  ],
+  "notes": "Items with variants and required options (wing sauce, soda flavor)."
+}

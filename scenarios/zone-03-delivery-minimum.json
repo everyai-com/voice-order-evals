@@ -1,0 +1,69 @@
+{
+  "id": "zone-03-delivery-minimum",
+  "title": "Delivery order under the minimum, caller adds an item",
+  "tags": [
+    "delivery-zone",
+    "minimum",
+    "delivery"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "Can I get a 20 ounce cola and a cookie delivered to 43215? 9 Pine Road.",
+    "Oh, okay. Add breadsticks then.",
+    "That's it.",
+    "Yes, I'll pay cash."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "delivery",
+      "delivery_zip": "43215",
+      "payment": "pay_on_delivery",
+      "items": [
+        {
+          "item": "soda_20oz",
+          "options": {
+            "flavor": "cola"
+          },
+          "quantity": 1
+        },
+        {
+          "item": "cookie",
+          "quantity": 1
+        },
+        {
+          "item": "breadsticks",
+          "quantity": 1
+        }
+      ],
+      "totals": {
+        "subtotal": 14.77,
+        "delivery_fee": 3.99,
+        "tax": 1.11,
+        "total": 19.87
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit",
+    "required_phrases"
+  ],
+  "required_phrases": [
+    [
+      "minimum"
+    ]
+  ],
+  "notes": "The delivery minimum is $12.00 before tax and fees."
+}

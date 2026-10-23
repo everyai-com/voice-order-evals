@@ -1,0 +1,61 @@
+{
+  "id": "mod-03-deep-dish-size-constraint",
+  "title": "Asks for a small deep dish, which only comes in medium and large",
+  "tags": [
+    "modifiers",
+    "menu-constraint",
+    "pickup"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "I'd like a small deep dish cheese pizza with extra cheese.",
+    "Oh. Okay, make it a medium deep dish then.",
+    "Pickup, and that's all.",
+    "Yes."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "pickup",
+      "items": [
+        {
+          "item": "cheese",
+          "size": "medium",
+          "crust": "deep_dish",
+          "quantity": 1,
+          "cheese": "extra"
+        }
+      ],
+      "totals": {
+        "subtotal": 16.24,
+        "delivery_fee": 0,
+        "tax": 1.22,
+        "total": 17.46
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit",
+    "required_phrases"
+  ],
+  "required_phrases": [
+    [
+      "medium and large",
+      "medium or large",
+      "only in medium"
+    ]
+  ],
+  "notes": "The agent must not put a deep dish crust on a small pizza."
+}

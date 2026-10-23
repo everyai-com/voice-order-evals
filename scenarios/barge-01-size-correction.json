@@ -1,0 +1,58 @@
+{
+  "id": "barge-01-size-correction",
+  "title": "Caller cuts in during the read-back to correct the size",
+  "tags": [
+    "barge-in",
+    "correction",
+    "pickup"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "A large pepperoni for pickup, hand-tossed.",
+    "That's all.",
+    {
+      "say": "No, wait, medium! Medium, not large.",
+      "marks": [
+        "barge_in"
+      ]
+    },
+    "Yes, that's right."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "pickup",
+      "items": [
+        {
+          "item": "pepperoni",
+          "size": "medium",
+          "crust": "hand_tossed",
+          "quantity": 1
+        }
+      ],
+      "totals": {
+        "subtotal": 14.49,
+        "delivery_fee": 0,
+        "tax": 1.09,
+        "total": 15.58
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit",
+    "barge_in_yield"
+  ],
+  "notes": "The agent stops talking quickly and applies the correction."
+}

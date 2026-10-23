@@ -1,0 +1,139 @@
+{
+  "$comment": "Synthetic menu for a fictional US pizza chain. Prices, hours, ZIP codes and allergen tags are made up for testing and describe no real restaurant. Money is in US dollars.",
+  "menu_version": "0.1.0",
+  "brand": "Example Pizza Co. (fictional)",
+  "currency": "USD",
+  "store": {
+    "id": "store-001",
+    "utc_offset": "-05:00",
+    "hours": {
+      "mon": ["10:30", "22:00"],
+      "tue": ["10:30", "22:00"],
+      "wed": ["10:30", "22:00"],
+      "thu": ["10:30", "22:00"],
+      "fri": ["10:30", "23:00"],
+      "sat": ["10:30", "23:00"],
+      "sun": ["11:00", "22:00"]
+    }
+  },
+  "delivery": {
+    "zips": ["43201", "43202", "43206", "43210", "43215"],
+    "fee": 3.99,
+    "minimum_subtotal": 12.00
+  },
+  "tax": {
+    "rate": 0.075,
+    "applies_to": "Subtotal of food and drink. In this synthetic menu the delivery fee is not taxed. Tax is rounded half up to the cent."
+  },
+  "sizes": {
+    "small": { "label": "Small (10 inch)" },
+    "medium": { "label": "Medium (12 inch)" },
+    "large": { "label": "Large (14 inch)" }
+  },
+  "crusts": {
+    "hand_tossed": { "label": "Hand-tossed", "default": true, "sizes": ["small", "medium", "large"], "upcharge": {}, "allergens": ["wheat", "soy"] },
+    "thin": { "label": "Thin crust", "sizes": ["small", "medium", "large"], "upcharge": {}, "allergens": ["wheat", "soy"] },
+    "deep_dish": { "label": "Deep dish", "sizes": ["medium", "large"], "upcharge": { "medium": 1.50, "large": 1.50 }, "allergens": ["wheat", "soy", "milk"] },
+    "gluten_free": { "label": "Gluten-free crust (made in a shared kitchen)", "sizes": ["small"], "upcharge": { "small": 2.00 }, "allergens": [], "may_contain": ["wheat"] }
+  },
+  "sauces": {
+    "marinara": { "label": "Marinara", "default": true, "allergens": [] },
+    "bbq": { "label": "BBQ sauce", "allergens": ["soy"] },
+    "garlic_parmesan": { "label": "Garlic parmesan sauce", "allergens": ["milk", "egg"] }
+  },
+  "cheese": { "label": "Mozzarella", "allergens": ["milk"] },
+  "topping_price": { "small": 1.25, "medium": 1.75, "large": 2.00 },
+  "toppings": {
+    "pepperoni": { "label": "Pepperoni", "type": "meat", "allergens": [] },
+    "italian_sausage": { "label": "Italian sausage", "type": "meat", "allergens": [] },
+    "ham": { "label": "Ham", "type": "meat", "allergens": [] },
+    "bacon": { "label": "Bacon", "type": "meat", "allergens": [] },
+    "beef": { "label": "Beef", "type": "meat", "allergens": ["soy"] },
+    "grilled_chicken": { "label": "Grilled chicken", "type": "meat", "allergens": ["soy"] },
+    "mushrooms": { "label": "Mushrooms", "type": "veg", "allergens": [] },
+    "onions": { "label": "Onions", "type": "veg", "allergens": [] },
+    "green_peppers": { "label": "Green peppers", "type": "veg", "allergens": [] },
+    "black_olives": { "label": "Black olives", "type": "veg", "allergens": [] },
+    "jalapenos": { "label": "Jalapenos", "type": "veg", "allergens": [] },
+    "pineapple": { "label": "Pineapple", "type": "veg", "allergens": [] },
+    "spinach": { "label": "Spinach", "type": "veg", "allergens": [] },
+    "tomatoes": { "label": "Tomatoes", "type": "veg", "allergens": [] },
+    "feta": { "label": "Feta", "type": "cheese", "allergens": ["milk"] }
+  },
+  "pizzas": {
+    "cheese": { "label": "Cheese pizza (build your own)", "build_your_own": true, "price": { "small": 9.99, "medium": 12.99, "large": 14.99 }, "toppings": [] },
+    "pepperoni": { "label": "Pepperoni pizza", "price": { "small": 11.49, "medium": 14.49, "large": 16.99 }, "toppings": ["pepperoni"] },
+    "supreme": { "label": "Supreme pizza", "price": { "small": 13.99, "medium": 17.49, "large": 19.99 }, "toppings": ["pepperoni", "italian_sausage", "green_peppers", "onions", "mushrooms", "black_olives"] },
+    "veggie": { "label": "Veggie pizza", "price": { "small": 12.99, "medium": 16.49, "large": 18.99 }, "toppings": ["mushrooms", "onions", "green_peppers", "black_olives", "tomatoes"] },
+    "five_meat": { "label": "Five meat pizza", "price": { "small": 14.49, "medium": 17.99, "large": 20.49 }, "toppings": ["pepperoni", "italian_sausage", "ham", "bacon", "beef"] },
+    "bbq_chicken": { "label": "BBQ chicken pizza", "price": { "small": 13.49, "medium": 16.99, "large": 19.49 }, "toppings": ["grilled_chicken", "onions"], "sauce": "bbq" },
+    "hawaiian": { "label": "Hawaiian pizza", "price": { "small": 12.49, "medium": 15.49, "large": 17.99 }, "toppings": ["ham", "pineapple"] }
+  },
+  "modifier_rules": {
+    "amounts": ["light", "regular", "extra"],
+    "placements": ["whole", "left", "right"],
+    "sauce_amounts": ["none", "light", "regular", "extra"],
+    "cheese_amounts": ["none", "light", "regular", "extra"],
+    "added_topping": "Charged at the topping price for the size. Extra counts as two toppings.",
+    "included_topping": "Free. Extra on a topping the pizza already includes is charged as one topping. Removing it does not lower the price.",
+    "half_topping": "A topping on the left or right half is charged at the full topping price.",
+    "extra_cheese": "Charged at the topping price for the size.",
+    "sauce": "Changing the sauce or its amount is free."
+  },
+  "items": {
+    "garlic_knots": { "label": "Garlic knots (8)", "category": "side", "price": 5.99, "allergens": ["wheat", "milk", "soy"] },
+    "breadsticks": { "label": "Breadsticks (6)", "category": "side", "price": 5.49, "allergens": ["wheat", "milk", "soy"] },
+    "wings": { "label": "Bone-in wings", "category": "side", "price": { "8pc": 9.99, "16pc": 18.99 }, "options": { "wing_sauce": ["buffalo", "bbq", "garlic_parmesan", "plain"] }, "allergens": ["milk"], "notes": "Buffalo sauce contains butter. Wings are fried in a shared fryer." },
+    "cinnamon_sticks": { "label": "Cinnamon sticks", "category": "dessert", "price": 5.99, "allergens": ["wheat", "milk", "soy"] },
+    "cookie": { "label": "Giant chocolate chip cookie", "category": "dessert", "price": 6.99, "allergens": ["wheat", "milk", "egg", "soy"], "may_contain": ["peanuts", "tree_nuts"] },
+    "ranch_dip": { "label": "Ranch dip", "category": "dip", "price": 0.79, "allergens": ["milk", "egg"] },
+    "marinara_dip": { "label": "Marinara dip", "category": "dip", "price": 0.79, "allergens": [] },
+    "blue_cheese_dip": { "label": "Blue cheese dip", "category": "dip", "price": 0.79, "allergens": ["milk", "egg"] },
+    "soda_2l": { "label": "2-liter soda", "category": "drink", "price": 3.49, "options": { "flavor": ["cola", "diet_cola", "lemon_lime", "root_beer"] }, "allergens": [] },
+    "soda_20oz": { "label": "20 oz soda", "category": "drink", "price": 2.29, "options": { "flavor": ["cola", "diet_cola", "lemon_lime", "root_beer"] }, "allergens": [] },
+    "water": { "label": "Bottled water", "category": "drink", "price": 1.99, "allergens": [] }
+  },
+  "deals": {
+    "two_medium_two_topping": {
+      "label": "Two medium two-topping pizzas",
+      "price": 19.99,
+      "order_types": ["pickup", "delivery"],
+      "components": [{ "kind": "pizza", "items": ["cheese"], "size": "medium", "toppings_included": 2, "count": 2 }],
+      "rules": "Two medium build-your-own pizzas with up to two toppings each. Toppings beyond two per pizza are charged at the topping price, and extra counts as two. Specialty pizzas are not eligible. Crust upcharges and extra cheese still apply."
+    },
+    "family_bundle": {
+      "label": "Family bundle",
+      "price": 22.99,
+      "order_types": ["pickup", "delivery"],
+      "components": [
+        { "kind": "pizza", "items": ["cheese"], "size": "large", "toppings_included": 1, "count": 1 },
+        { "kind": "item", "items": ["breadsticks"], "count": 1 },
+        { "kind": "item", "items": ["soda_2l"], "count": 1 }
+      ],
+      "rules": "One large one-topping pizza, breadsticks and a 2-liter soda. Extra toppings are charged at the topping price."
+    },
+    "large_specialty_carryout": {
+      "label": "Large specialty pizza, carryout",
+      "price": 14.99,
+      "order_types": ["pickup"],
+      "components": [{ "kind": "pizza", "items": ["pepperoni", "supreme", "veggie", "five_meat", "bbq_chicken", "hawaiian"], "size": "large", "count": 1 }],
+      "rules": "Any large specialty pizza for pickup only. Not available for delivery. Added toppings and crust upcharges are charged as normal."
+    }
+  },
+  "policies": {
+    "disclose_ai": "The agent's first turn says it is an automated assistant.",
+    "upsell_max_offers": 1,
+    "card_by_voice": false,
+    "payment_handoff": "Card payments go to a secure payment step (keypad entry or a payment link). The agent never asks for, hears, repeats or stores card numbers, expiry dates or security codes.",
+    "allergens": "The agent may read allergen tags from this menu, must say the kitchen is shared and nothing can be guaranteed allergen-free, must never call an item safe for an allergy, defers severe allergy questions to the store, and logs every allergen question for staff.",
+    "max_quantity_per_line": 10,
+    "max_subtotal": 250.00,
+    "large_orders": "Orders over the limits are not placed by the agent; it offers to transfer the caller to staff.",
+    "human_request": "When a caller asks for a person, the agent transfers at once, with at most one short confirming turn first.",
+    "abuse": "One calm warning. If the abuse continues, the agent ends the call politely. It never swears back.",
+    "max_reprompts_on_silence": 2,
+    "min_reprompt_gap_ms": 4000,
+    "barge_in_yield_ms": 500,
+    "latency_budget_p95_ms": 800
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "deal-02-two-medium-extra-topping",
+  "title": "Two medium deal with a third topping on one pizza",
+  "tags": [
+    "deals",
+    "upcharge",
+    "pickup"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "I'll take the two medium two-topping deal.",
+    "First pizza: pepperoni, bacon and jalapenos. Second one just cheese.",
+    "Thin crust for both, for pickup.",
+    "That's all.",
+    "Yes, that's right."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "pickup",
+      "items": [
+        {
+          "deal": "two_medium_two_topping",
+          "quantity": 1,
+          "components": [
+            {
+              "item": "cheese",
+              "size": "medium",
+              "crust": "thin",
+              "toppings": [
+                "pepperoni",
+                "bacon",
+                "jalapenos"
+              ]
+            },
+            {
+              "item": "cheese",
+              "size": "medium",
+              "crust": "thin"
+            }
+          ]
+        }
+      ],
+      "totals": {
+        "subtotal": 21.74,
+        "delivery_fee": 0,
+        "tax": 1.63,
+        "total": 23.37
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit",
+    "required_phrases"
+  ],
+  "required_phrases": [
+    [
+      "$1.75"
+    ]
+  ],
+  "notes": "The third topping is charged at the medium topping price, and the agent tells the caller."
+}

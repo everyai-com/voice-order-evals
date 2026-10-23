@@ -1,0 +1,70 @@
+{
+  "id": "deal-04-family-bundle-delivery",
+  "title": "Family bundle delivered, cash at the door",
+  "tags": [
+    "deals",
+    "delivery"
+  ],
+  "context": {
+    "now": "2026-10-23T18:30:00-05:00",
+    "store_id": "store-001"
+  },
+  "caller_turns": [
+    "I want the family bundle for delivery to 15 Oak Avenue, 43210.",
+    "Pepperoni on the pizza, hand-tossed.",
+    "Root beer for the soda.",
+    "That's everything.",
+    "Yes. Cash at the door."
+  ],
+  "expected": {
+    "outcome": "order_placed",
+    "ticket": {
+      "order_type": "delivery",
+      "delivery_zip": "43210",
+      "payment": "pay_on_delivery",
+      "items": [
+        {
+          "deal": "family_bundle",
+          "quantity": 1,
+          "components": [
+            {
+              "item": "cheese",
+              "size": "large",
+              "toppings": [
+                "pepperoni"
+              ]
+            },
+            {
+              "item": "breadsticks"
+            },
+            {
+              "item": "soda_2l",
+              "options": {
+                "flavor": "root_beer"
+              }
+            }
+          ]
+        }
+      ],
+      "totals": {
+        "subtotal": 22.99,
+        "delivery_fee": 3.99,
+        "tax": 1.72,
+        "total": 28.7
+      }
+    }
+  },
+  "policy_checks": [
+    "ai_disclosure",
+    "no_invented_items",
+    "no_card_by_voice",
+    "no_allergen_promise",
+    "upsell_once",
+    "no_profanity",
+    "order_sanity",
+    "delivery_rules",
+    "store_hours",
+    "readback_before_submit"
+  ],
+  "notes": "A bundle with a pizza, a side and a drink."
+}
