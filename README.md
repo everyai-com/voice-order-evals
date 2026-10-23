@@ -31,7 +31,7 @@ A scenario passes when its outcome is right, its ticket is exact (if one is expe
 You need Node.js 20 or later. Nothing to install; the package is not on npm yet.
 
 ```sh
-git clone <this repository> voice-order-evals
+git clone https://github.com/everyai-com/voice-order-evals.git
 cd voice-order-evals
 node bin/voe.mjs score examples/runs-good.jsonl
 ```

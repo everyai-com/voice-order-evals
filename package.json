@@ -31,5 +31,13 @@
     "pci"
   ],
   "author": "MagicTeams.ai",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/everyai-com/voice-order-evals.git"
+  },
+  "homepage": "https://github.com/everyai-com/voice-order-evals#readme",
+  "bugs": {
+    "url": "https://github.com/everyai-com/voice-order-evals/issues"
+  }
 }
